@@ -4,6 +4,7 @@ import { Container } from "./styled";
 import { actGetUserInfo } from "../../redux/actions/user";
 import { getAccessToken, isFalsyValue } from "../../utils/common";
 import { withRouter } from "react-router-dom";
+import Header from "../Header";
 
 function App({ children, userInfo, actGetUserInfo, history }) {
   useEffect(() => {
@@ -12,7 +13,12 @@ function App({ children, userInfo, actGetUserInfo, history }) {
     }
   }, []);
 
-  return <Container>{children}</Container>;
+  return (
+    <>
+      {Object.keys(userInfo).length !== 0 && <Header history={history} />}
+      <Container>{children}</Container>
+    </>
+  );
 }
 
 const mapStateToProps = (state) => ({

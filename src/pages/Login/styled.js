@@ -3,21 +3,14 @@ import styled from "styled-components";
 import { devices, lessThan } from "../../utils/styles/responsive";
 
 export const Tab = styled.div`
-    width: 120px;
     margin: 0 auto;
     margin-bottom: 20px;
-    display: flex;
-    justify-content: space-between;
     font-weight: bold;
     font-size: 16px;
+    text-align: center;
 
     span {
-        cursor: pointer;
-
-        &:nth-child(${props => props.isLoginForm ? 1 : 2}) {
-            border-bottom: 2px solid #40ADFF;
-            
-        }
+        display: inline-block;
     }
 `;
 

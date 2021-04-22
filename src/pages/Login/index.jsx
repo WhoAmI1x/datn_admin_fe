@@ -1,10 +1,10 @@
 import { Button, Col, Form, Image, Input, Row } from "antd";
 import { useState } from "react";
 import { connect } from "react-redux";
-import { actSignIn, actSignUp } from "../../redux/actions/user";
+import { actLogIn } from "../../redux/actions/user";
 import { Container, Item, LoginForm, Tab } from "./styled";
 
-function Login({ actSignIn, actSignUp, history }) {
+function Login({ actLogIn, history }) {
   return (
     <Container>
       <LoginForm>
@@ -15,7 +15,7 @@ function Login({ actSignIn, actSignUp, history }) {
 
           <Col md={8} xs={{ span: 24 }}>
             <Tab>
-              <span>Login</span>
+              <span>Admin login page</span>
             </Tab>
 
             <Row justify="center" align="middle">
@@ -25,7 +25,7 @@ function Login({ actSignIn, actSignUp, history }) {
                   onFinish={(account) => {
                     console.log(account);
 
-                    actSignIn(history, account);
+                    actLogIn(history, account);
                   }}
                 >
                   <Item
@@ -71,8 +71,7 @@ function Login({ actSignIn, actSignUp, history }) {
 }
 
 const mapDispatchToProps = {
-  actSignIn,
-  actSignUp,
+  actLogIn,
 };
 
 export default connect(null, mapDispatchToProps)(Login);

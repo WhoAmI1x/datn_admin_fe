@@ -6,7 +6,8 @@ import { getAccessToken } from "../utils/common";
 const axiosClient = axios.create({
     baseURL: constants.BASE_API_URL,
     headers: {
-        "content-type": "application/json"
+        "content-type": "application/json",
+        "user-role": "ADMIN"
     },
     paramsSerializer: params => queryString.stringify(params),
     timeout: 20000

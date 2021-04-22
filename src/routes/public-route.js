@@ -8,7 +8,7 @@ const PublicRoute = ({ component: Component, restricted, ...rest }) => {
       {...rest}
       render={props => {
         if (!isFalsyValue(getAccessToken()) && restricted) {
-          return <Redirect to="/home/empty" />
+          return <Redirect to="/dashboard" />
         } else {
           return <Component {...props} />
         }

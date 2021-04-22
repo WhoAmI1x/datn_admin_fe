@@ -5,6 +5,7 @@ import PrivateRoute from "./private-route";
 import PublicRoute from "./public-route";
 
 import Login from "../pages/Login";
+import Dashboard from "../pages/Dashboard";
 import NotFound from "../pages/NotFound";
 
 const routes = [
@@ -12,6 +13,11 @@ const routes = [
         path: "/",
         component: Login,
         restricted: true
+    },
+    {
+        path: "/dashboard",
+        component: Dashboard,
+        isPrivate: true
     },
     {
         path: "*",
