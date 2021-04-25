@@ -2,7 +2,24 @@ import React from "react";
 import { Container } from "./styled";
 
 function Dashboard({}) {
-  return <Container>Admin dashboard page</Container>;
+  return (
+    <Container>
+      xxxxxxxxxxxxxxxxxxxxxxxxxx
+      <br />
+      Admin dashboard page
+      <br />
+      Admin dashboard page
+      <br />
+      Admin dashboard page
+      <br />
+      Admin dashboard page
+      <br />
+      Admin dashboard page
+      <br />
+      Admin dashboard page
+      <br />
+    </Container>
+  );
 }
 
 export default Dashboard;

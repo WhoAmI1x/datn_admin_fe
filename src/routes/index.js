@@ -6,6 +6,10 @@ import PublicRoute from "./public-route";
 
 import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
+import Category from "../pages/Category";
+import DiscountCode from "../pages/DiscountCode";
+import Product from "../pages/Product";
+import User from "../pages/User";
 import NotFound from "../pages/NotFound";
 
 const routes = [
@@ -17,6 +21,26 @@ const routes = [
     {
         path: "/dashboard",
         component: Dashboard,
+        isPrivate: true
+    },
+    {
+        path: "/user",
+        component: User,
+        isPrivate: true
+    },
+    {
+        path: "/category",
+        component: Category,
+        isPrivate: true
+    },
+    {
+        path: "/discount-code",
+        component: DiscountCode,
+        isPrivate: true
+    },
+    {
+        path: "/product",
+        component: Product,
         isPrivate: true
     },
     {

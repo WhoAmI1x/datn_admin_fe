@@ -3,6 +3,7 @@ import { LogoutOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 
 export const Container = styled.div`
+    width: 100%;
     height: 60px;
     background-color: #5664D2;
     display: flex;
@@ -11,6 +12,8 @@ export const Container = styled.div`
     color: #fff;
     font-weight: bold;
     padding: 0 40px;
+    position: fixed;
+    z-index: 1000;
 `;
 
 export const DashboardIcon = styled(Link)`
