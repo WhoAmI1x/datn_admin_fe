@@ -22,11 +22,7 @@ function Login({ actLogIn, history }) {
               <Col>
                 <Form
                   layout="vertical"
-                  onFinish={(account) => {
-                    console.log(account);
-
-                    actLogIn(history, account);
-                  }}
+                  onFinish={(account) => actLogIn(history, account)}
                 >
                   <Item
                     label="Email:"

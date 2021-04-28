@@ -18,8 +18,7 @@ export const actLogIn = (history, account) => async dispatch => {
             message.success("Login success!");
         }
     } catch (e) {
-        console.log("actLogIn: ", e.response);
-        message.error(e.response?.data.error || "Server error!");
+        message.error(e.response.data.message || e.response.data.error);
     }
     dispatch(actSetLoading(false));
 }
@@ -37,10 +36,8 @@ export const actGetUserInfo = history => async dispatch => {
             dispatch(actSetLoading(false));
         }
     } catch (e) {
-        console.log("actGetUserInfo: ", e.response);
-
         removeAccessToken("accessToken");
-        message.error(e.response?.statusText);
+        message.error(e.response.data.message || e.response.data.error);
         history.push("/");
         dispatch(actSetLoading(false));
 
@@ -61,7 +58,9 @@ export const actLogOut = history => async dispatch => {
             message.success(res.message);
         }
     } catch (e) {
-        message.error(e.response?.data.error);
+        message.error(e.response.data.message || e.response.data.error);
     }
     dispatch(actSetLoading(false));
 }
+
+

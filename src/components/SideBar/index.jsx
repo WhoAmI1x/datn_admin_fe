@@ -21,8 +21,9 @@ import {
   MenuItemText,
 } from "./styled";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-function SideBar({}) {
+function SideBar({ user }) {
   return (
     <Container>
       <Account>
@@ -30,8 +31,8 @@ function SideBar({}) {
           <Image src="/images/avatar.png" preview={false} />
         </AvatarImage>
         <Info>
-          <FullName>Trần Trung Huỳnh</FullName>
-          <Email>trantrunghuynh1998@gmail.com</Email>
+          <FullName>{user.fullName}</FullName>
+          <Email>{user.email}</Email>
         </Info>
       </Account>
       <Menu>
@@ -84,4 +85,8 @@ function SideBar({}) {
   );
 }
 
-export default SideBar;
+const mapStateToProps = (state) => ({
+  user: state.user,
+});
+
+export default connect(mapStateToProps)(SideBar);

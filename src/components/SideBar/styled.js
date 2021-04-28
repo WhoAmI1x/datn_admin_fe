@@ -41,6 +41,11 @@ export const Info = styled.div`
 export const FullName = styled.div`
     font-weight: bold;
     font-size: 16px;
+
+    &:hover {
+        color: #2F9EFF;
+        cursor: pointer;
+    }
 `;
 
 export const Email = styled.div`

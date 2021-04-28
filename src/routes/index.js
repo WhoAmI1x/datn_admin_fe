@@ -8,6 +8,7 @@ import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
 import Category from "../pages/Category";
 import DiscountCode from "../pages/DiscountCode";
+import DiscountCodeByCategory from "../pages/DiscountCodeByCategory";
 import Product from "../pages/Product";
 import User from "../pages/User";
 import NotFound from "../pages/NotFound";
@@ -36,6 +37,11 @@ const routes = [
     {
         path: "/discount-code",
         component: DiscountCode,
+        isPrivate: true
+    },
+    {
+        path: "/discount-code/:ecommerce/:categoryId",
+        component: DiscountCodeByCategory,
         isPrivate: true
     },
     {
