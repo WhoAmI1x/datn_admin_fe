@@ -11,6 +11,7 @@ import {
   actGetProductsByCategoryFromEcommerce,
   actGetProductDetail,
 } from "../../redux/actions/product";
+import { Link } from "react-router-dom";
 const {
   Container,
   ButtonCustom,
@@ -38,9 +39,7 @@ function ProductByCategory({
       title: "Tên",
       width: 300,
       render: (product) => (
-        <a onClick={() => handleGetProductDetail(product._id)}>
-          {product.name}
-        </a>
+        <Link to={`/product/${product._id}`}>{product.name}</Link>
       ),
     },
     {
@@ -90,24 +89,8 @@ function ProductByCategory({
     },
   ];
 
-  const [productFullInfo, setProductFullInfo] = useState({});
-  const [isModalVisible, setIsModalVisible] = useState(true);
-
   const currentCategory =
     categories.find(({ _id }) => categoryId === _id) || {};
-
-  const handleGetProductDetail = (productId) => {
-    setIsModalVisible(true);
-    // actGetProductDetail(productId, (pFInfo) => setProductFullInfo(pFInfo));
-  };
-
-  const handleOk = () => {
-    setIsModalVisible(false);
-  };
-
-  const handleCancel = () => {
-    setIsModalVisible(false);
-  };
 
   useEffect(() => {
     if (categories.length <= 0) {
@@ -144,137 +127,6 @@ function ProductByCategory({
         columns={columns}
         dataSource={products}
       />
-
-      <Modal
-        title={productFullInfo.name || "Chi tiết sản phẩm"}
-        visible={isModalVisible}
-        footer={false}
-        onOk={handleOk}
-        onCancel={handleCancel}
-      >
-        <Row gutter={[0, 8]}>
-          <Col span={24}>
-            <Row align="middle" gutter={[16, 0]}>
-              <Col span={7} align="end">
-                <b>Ảnh:</b>
-              </Col>
-              <Col span={17}>
-                <Image
-                  src={
-                    productFullInfo.imageUrls && productFullInfo.imageUrls[0]
-                  }
-                  width="100px"
-                />
-              </Col>
-            </Row>
-          </Col>
-
-          <Col span={24}>
-            <Row align="middle" gutter={[16, 0]}>
-              <Col span={7} align="end">
-                <b>Tên sản phẩm:</b>
-              </Col>
-              <Col span={17}>{productFullInfo.name}</Col>
-            </Row>
-          </Col>
-
-          <Col span={24}>
-            <Row align="middle" gutter={[16, 0]}>
-              <Col span={7} align="end">
-                <b>Giá mới:</b>
-              </Col>
-              <Col span={17}>{productFullInfo.price}</Col>
-            </Row>
-          </Col>
-
-          <Col span={24}>
-            <Row align="middle" gutter={[16, 0]}>
-              <Col span={7} align="end">
-                <b>Giá cũ:</b>
-              </Col>
-              <Col span={17}>{productFullInfo.price}</Col>
-            </Row>
-          </Col>
-
-          <Col span={24}>
-            <Row align="middle" gutter={[16, 0]}>
-              <Col span={7} align="end">
-                <b>Giá cũ:</b>
-              </Col>
-              <Col span={17}>{productFullInfo.priceBeforeDiscount}</Col>
-            </Row>
-          </Col>
-
-          <Col span={24}>
-            <Row align="middle" gutter={[16, 0]}>
-              <Col span={7} align="end">
-                <b>Giảm:</b>
-              </Col>
-              <Col span={17}>{`Giảm ${productFullInfo.discountPercent}%`}</Col>
-            </Row>
-          </Col>
-
-          <Col span={24}>
-            <Row align="middle" gutter={[16, 0]}>
-              <Col span={7} align="end">
-                <b>Đánh giá:</b>
-              </Col>
-              <Col span={17}>{productFullInfo.rateAverage}</Col>
-            </Row>
-          </Col>
-
-          <Col span={24}>
-            <Row align="middle" gutter={[16, 0]}>
-              <Col span={7} align="end">
-                <b>Hạn giảm giá:</b>
-              </Col>
-              <Col span={17}>
-                {getDateStringAndTime(productFullInfo.endTime)}
-              </Col>
-            </Row>
-          </Col>
-
-          <Col span={24}>
-            <Row align="middle" gutter={[16, 0]}>
-              <Col span={7} align="end">
-                <b>Tổng số lượng:</b>
-              </Col>
-              <Col span={17}>{productFullInfo.quantity}</Col>
-            </Row>
-          </Col>
-
-          <Col span={24}>
-            <Row align="middle" gutter={[16, 0]}>
-              <Col span={7} align="end">
-                <b>Đã bán:</b>
-              </Col>
-              <Col span={17}>{productFullInfo.quantitySold}</Col>
-            </Row>
-          </Col>
-
-          <Col span={24}>
-            <Row align="middle" gutter={[16, 0]}>
-              <Col span={7} align="end">
-                <b>Còn lại:</b>
-              </Col>
-              <Col span={17}>{productFullInfo.quantityRemain}</Col>
-            </Row>
-          </Col>
-
-          <Col span={24}>
-            <Row align="middle" gutter={[16, 0]}>
-              <Col span={7} align="end">
-                <b>Link sản phẩm:</b>
-              </Col>
-              <Col span={17}>
-                <a href={`${productFullInfo.productUrl}`} target="_blank">
-                  {productFullInfo.productUrl}
-                </a>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-      </Modal>
     </Container>
   );
 }
