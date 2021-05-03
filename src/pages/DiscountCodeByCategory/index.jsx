@@ -2,6 +2,7 @@
 import { connect } from "react-redux";
 import { Container } from "../DiscountCode/styled";
 import { ButtonCustom, CategoryTitle, ImageCustom } from "./styled";
+import { actGetCategories } from "../../redux/actions/categories";
 import {
   actDeleteDiscountCodeById,
   actGetDiscountCodeByCategory,
@@ -14,12 +15,11 @@ import { BASE_API_URL } from "../../utils/constants";
 import { getDateStringAndTime } from "../../utils/common";
 
 function DiscountCodeByCategory({
-  location: {
-    state: { name },
-  },
   match: {
     params: { ecommerce, categoryId },
   },
+  categories,
+  actGetCategories,
   actGetDiscountCodeByCategory,
   actGetDiscountCodesByCategoryFromEcommerce,
   actDeleteDiscountCodeById,
@@ -78,6 +78,9 @@ function DiscountCodeByCategory({
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [currentDiscountCode, setCurrentDiscountCode] = useState({});
 
+  const currentCategory =
+    categories.find(({ _id }) => categoryId === _id) || {};
+
   const handleShowDiscountCodeDetail = (discountCodeId) => {
     setIsModalVisible(true);
     setCurrentDiscountCode(
@@ -91,6 +94,10 @@ function DiscountCodeByCategory({
   };
 
   useEffect(() => {
+    if (categories.length <= 0) {
+      actGetCategories();
+    }
+
     actGetDiscountCodeByCategory(categoryId);
   }, []);
 
@@ -105,10 +112,19 @@ function DiscountCodeByCategory({
         Cập nhật mã từ sàn
       </ButtonCustom>
 
-      <CategoryTitle>{name}</CategoryTitle>
+      <CategoryTitle>
+        <Image
+          width={40}
+          height={40}
+          preview={false}
+          src={`${BASE_API_URL}${currentCategory.imageUrl}`}
+        />
+        &nbsp;
+        {currentCategory.name}
+      </CategoryTitle>
 
       <Table
-        rowKey={(discountCode) => discountCode._id}
+        rowKey={(discountCode) => discountCode.mainId}
         columns={columns}
         dataSource={discountCodes}
       />
@@ -218,12 +234,14 @@ function DiscountCodeByCategory({
 
 const mapStateToProps = (state) => ({
   discountCodes: state.discountCodes,
+  categories: state.categories,
 });
 
 const mapDispatchToProps = {
   actGetDiscountCodeByCategory,
   actGetDiscountCodesByCategoryFromEcommerce,
   actDeleteDiscountCodeById,
+  actGetCategories,
 };
 
 export default connect(

@@ -1,5 +1,6 @@
 import { Image } from "antd";
 import {
+  ApiOutlined,
   DashboardOutlined,
   DollarOutlined,
   OrderedListOutlined,
@@ -78,6 +79,15 @@ function SideBar({ user }) {
               <SkinOutlined />
             </MenuItemIcon>
             <MenuItemText>Sản phẩm</MenuItemText>
+          </MenuItem>
+        </Link>
+
+        <Link to="/api-urls">
+          <MenuItem>
+            <MenuItemIcon>
+              <ApiOutlined />
+            </MenuItemIcon>
+            <MenuItemText>Quản lý Apis</MenuItemText>
           </MenuItem>
         </Link>
       </Menu>

@@ -37,7 +37,7 @@ export const actGetUserInfo = history => async dispatch => {
         }
     } catch (e) {
         removeAccessToken("accessToken");
-        message.error(e.response.data.message || e.response.data.error);
+        message.error(e.response?.data.message || e.response?.data.error || "Lỗi đăng nhập!");
         history.push("/");
         dispatch(actSetLoading(false));
 

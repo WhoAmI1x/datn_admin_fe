@@ -28,15 +28,13 @@ function DiscountCode({ history, actGetCategories, categories }) {
                 ({ ecommerce, type }) =>
                   ecommerce === "TIKI" && type === "DISCOUNT_CODE"
               )
-              .map(({ _id, imageUrl, name, ecommerce }) => (
+              .map(({ _id, imageUrl, name, ecommerce }, index) => (
                 <Col
+                  key={index}
                   span={4}
                   onClick={() =>
                     history.push({
                       pathname: `/discount-code/${ecommerce.toLowerCase()}/${_id}`,
-                      state: {
-                        name,
-                      },
                     })
                   }
                 >
@@ -56,15 +54,13 @@ function DiscountCode({ history, actGetCategories, categories }) {
                 ({ ecommerce, type }) =>
                   ecommerce === "SHOPEE" && type === "DISCOUNT_CODE"
               )
-              .map(({ _id, imageUrl, name, ecommerce }) => (
+              .map(({ _id, imageUrl, name, ecommerce }, index) => (
                 <Col
+                  key={index}
                   span={4}
                   onClick={() =>
                     history.push({
                       pathname: `/discount-code/${ecommerce.toLowerCase()}/${_id}`,
-                      state: {
-                        name,
-                      },
                     })
                   }
                 >

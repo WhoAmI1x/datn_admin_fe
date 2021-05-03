@@ -87,7 +87,7 @@ function Category({
       render: (_id) => (
         <Popconfirm
           title="Xóa danh mục?"
-          onConfirm={() => actDeleteCategory(_id)}
+          onConfirm={() => handleDeleteCategory(_id)}
           okText="Xóa"
           cancelText="Hủy"
         >
@@ -108,6 +108,13 @@ function Category({
     preview: "",
     raw: "",
   });
+
+  const handleDeleteCategory = (_id) => {
+    actDeleteCategory(_id);
+    setEcommerce(null);
+    setType(null);
+    setKeyword(null);
+  };
 
   const handleChangeEcommerce = (ecommerceValue) => {
     setEcommerce(ecommerceValue);
@@ -155,6 +162,9 @@ function Category({
     setIsShowModal(false);
     setCurrentCategory({});
     setImage({ preview: "", raw: "" });
+    setEcommerce(null);
+    setType(null);
+    setKeyword(null);
   };
 
   const handleClickCreateCategory = () => {

@@ -10,6 +10,8 @@ import Category from "../pages/Category";
 import DiscountCode from "../pages/DiscountCode";
 import DiscountCodeByCategory from "../pages/DiscountCodeByCategory";
 import Product from "../pages/Product";
+import ProductDetail from "../pages/ProductDetail";
+import ProductByCategory from "../pages/ProductByCategory";
 import User from "../pages/User";
 import NotFound from "../pages/NotFound";
 
@@ -47,6 +49,16 @@ const routes = [
     {
         path: "/product",
         component: Product,
+        isPrivate: true
+    },
+    {
+        path: "/product/:ecommerce/:categoryId",
+        component: ProductByCategory,
+        isPrivate: true
+    },
+    {
+        path: "/product/:productId",
+        component: ProductDetail,
         isPrivate: true
     },
     {

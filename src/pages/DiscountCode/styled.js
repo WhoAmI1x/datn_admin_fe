@@ -4,7 +4,9 @@ export const Container = styled.div`
 `;
 
 export const Ecommerce = styled.div`
-    
+    &:nth-child(1) {
+        margin-bottom: 20px;
+    }
 `;
 
 export const EcommerceName = styled.div`
@@ -20,5 +22,4 @@ export const EcommerceName = styled.div`
 `;
 
 export const DiscountCodeCategories = styled.div`
-    margin-bottom: 20px;
 `;
