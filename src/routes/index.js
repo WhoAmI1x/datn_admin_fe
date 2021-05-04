@@ -12,6 +12,7 @@ import DiscountCodeByCategory from "../pages/DiscountCodeByCategory";
 import Product from "../pages/Product";
 import ProductDetail from "../pages/ProductDetail";
 import ProductByCategory from "../pages/ProductByCategory";
+import ApiUrl from "../pages/ApiUrl";
 import User from "../pages/User";
 import NotFound from "../pages/NotFound";
 
@@ -59,6 +60,11 @@ const routes = [
     {
         path: "/product/:productId",
         component: ProductDetail,
+        isPrivate: true
+    },
+    {
+        path: "/api-url",
+        component: ApiUrl,
         isPrivate: true
     },
     {

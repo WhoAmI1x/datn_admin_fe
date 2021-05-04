@@ -62,7 +62,7 @@ function DiscountCodeByCategory({
       dataIndex: "_id",
       render: (_id) => (
         <Popconfirm
-          title="Xóa người dùng?"
+          title="Xóa mã?"
           onConfirm={() => actDeleteDiscountCodeById(_id)}
           okText="Xóa"
           cancelText="Hủy"

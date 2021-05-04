@@ -82,7 +82,7 @@ function SideBar({ user }) {
           </MenuItem>
         </Link>
 
-        <Link to="/api-urls">
+        <Link to="/api-url">
           <MenuItem>
             <MenuItemIcon>
               <ApiOutlined />

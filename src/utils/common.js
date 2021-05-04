@@ -18,4 +18,13 @@ const getDateStringAndTime = milliseconds => {
     return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} - ${date.toLocaleTimeString()}`;
 }
 
-export { getAccessToken, removeAccessToken, isFalsyValue, msToTime, getDateStringAndTime };
+const moneyFormat = (number) => {
+    const formatter = new Intl.NumberFormat('vi-VN', {
+        style: 'currency',
+        currency: 'vnd',
+    });
+
+    return formatter.format(number);
+};
+
+export { getAccessToken, removeAccessToken, isFalsyValue, msToTime, getDateStringAndTime, moneyFormat };

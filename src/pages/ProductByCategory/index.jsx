@@ -1,6 +1,16 @@
 /* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { Col, Image, Modal, Progress, Rate, Row, Table } from "antd";
+import {
+  Button,
+  Col,
+  Image,
+  Modal,
+  Popconfirm,
+  Progress,
+  Rate,
+  Row,
+  Table,
+} from "antd";
 import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { actGetCategories } from "../../redux/actions/categories";
@@ -9,7 +19,7 @@ import { BASE_API_URL } from "../../utils/constants";
 import {
   actGetProductsByCategory,
   actGetProductsByCategoryFromEcommerce,
-  actGetProductDetail,
+  actDeleteProduct,
 } from "../../redux/actions/product";
 import { Link } from "react-router-dom";
 const {
@@ -27,6 +37,7 @@ function ProductByCategory({
   actGetCategories,
   actGetProductsByCategory,
   actGetProductsByCategoryFromEcommerce,
+  actDeleteProduct,
   products,
 }) {
   const columns = [
@@ -87,6 +98,22 @@ function ProductByCategory({
       width: 10,
       dataIndex: "quantityRemain",
     },
+    {
+      title: "Hành động",
+      dataIndex: "_id",
+      render: (_id) => (
+        <Popconfirm
+          title="Xóa sản phẩm?"
+          onConfirm={() => actDeleteProduct(_id)}
+          okText="Xóa"
+          cancelText="Hủy"
+        >
+          <Button type="primary" danger>
+            Xóa
+          </Button>
+        </Popconfirm>
+      ),
+    },
   ];
 
   const currentCategory =
@@ -140,6 +167,7 @@ const mapDispatchToProps = {
   actGetProductsByCategory,
   actGetCategories,
   actGetProductsByCategoryFromEcommerce,
+  actDeleteProduct,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductByCategory);
