@@ -15,7 +15,11 @@ import {
   SessionTitle,
   Specifications,
 } from "./styled";
-import { isFalsyValue, moneyFormat } from "../../utils/common";
+import {
+  getDateStringAndTime,
+  isFalsyValue,
+  moneyFormat,
+} from "../../utils/common";
 
 function ProductDetail({
   match: {
@@ -78,7 +82,10 @@ function ProductDetail({
   const dataSource = Object.keys(labels).map((key) => ({
     key,
     label: labels[key],
-    value: productFullInfo[key],
+    value:
+      key === "endTime"
+        ? getDateStringAndTime(productFullInfo[key])
+        : productFullInfo[key],
   }));
 
   useEffect(() => {

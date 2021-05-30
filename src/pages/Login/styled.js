@@ -1,6 +1,6 @@
 import { Form } from 'antd';
 import styled from "styled-components";
-import { devices, lessThan } from "../../utils/styles/responsive";
+import { devices, lessThan } from "../../layouts/styles/responsive";
 
 export const Tab = styled.div`
     margin: 0 auto;
