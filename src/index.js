@@ -18,7 +18,7 @@ ReactDOM.render(
   <Router>
     <Provider store={store}>
       {/* <React.StrictMode> */}
-      <Loading >
+      <Loading>
         <App>{routes()}</App>
       </Loading>
       {/* </React.StrictMode> */}

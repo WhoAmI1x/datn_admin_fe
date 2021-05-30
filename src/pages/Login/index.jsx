@@ -15,7 +15,7 @@ function Login({ actLogIn, history }) {
 
           <Col md={8} xs={{ span: 24 }}>
             <Tab>
-              <span>Admin login page</span>
+              <span>Đăng nhập</span>
             </Tab>
 
             <Row justify="center" align="middle">
@@ -30,7 +30,7 @@ function Login({ actLogIn, history }) {
                     rules={[
                       {
                         required: true,
-                        message: "Please input your email!",
+                        message: "Không được để trống!",
                         type: "email",
                       },
                     ]}
@@ -44,7 +44,7 @@ function Login({ actLogIn, history }) {
                     rules={[
                       {
                         required: true,
-                        message: "Please input your password!",
+                        message: "Không được để trống!",
                       },
                     ]}
                   >

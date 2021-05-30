@@ -1,6 +1,6 @@
 import axiosClient from "./axiosClient";
 
-export const logIn = account => axiosClient.post("/user/login-with-admin-role", account);
+export const logIn = account => axiosClient.post("/user/login", account);
 
 export const getUserInfo = () => axiosClient.get("/user/get-user-info");
 

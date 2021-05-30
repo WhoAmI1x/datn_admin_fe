@@ -15,10 +15,10 @@ export const actLogIn = (history, account) => async dispatch => {
                 type: "SET_USER",
                 payload: res.user
             });
-            message.success("Login success!");
+            message.success("Đăng nhập thành công!");
         }
     } catch (e) {
-        message.error(e.response.data.message || e.response.data.error);
+        message.error(e.response?.data?.error?.message || "Lỗi server!");
     }
     dispatch(actSetLoading(false));
 }

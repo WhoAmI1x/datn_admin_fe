@@ -82,14 +82,14 @@ function SideBar({ user }) {
           </MenuItem>
         </Link>
 
-        <Link to="/api-url">
+        {/* <Link to="/api-url">
           <MenuItem>
             <MenuItemIcon>
               <ApiOutlined />
             </MenuItemIcon>
             <MenuItemText>Quản lý Apis</MenuItemText>
           </MenuItem>
-        </Link>
+        </Link> */}
       </Menu>
     </Container>
   );
