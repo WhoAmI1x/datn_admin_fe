@@ -24,7 +24,9 @@ import {
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-function SideBar({ user }) {
+function SideBar({ user, location }) {
+  const currentPage = location.pathname.split("/")[1];
+
   return (
     <Container>
       <Account>
@@ -38,7 +40,7 @@ function SideBar({ user }) {
       </Account>
       <Menu>
         <Link to="/dashboard">
-          <MenuItem>
+          <MenuItem isActive={currentPage === "dashboard"}>
             <MenuItemIcon>
               <DashboardOutlined />
             </MenuItemIcon>
@@ -47,7 +49,7 @@ function SideBar({ user }) {
         </Link>
 
         <Link to="/user">
-          <MenuItem>
+          <MenuItem isActive={currentPage === "user"}>
             <MenuItemIcon>
               <UserOutlined />
             </MenuItemIcon>
@@ -56,7 +58,7 @@ function SideBar({ user }) {
         </Link>
 
         <Link to="/category">
-          <MenuItem>
+          <MenuItem isActive={currentPage === "category"}>
             <MenuItemIcon>
               <OrderedListOutlined />
             </MenuItemIcon>
@@ -65,7 +67,7 @@ function SideBar({ user }) {
         </Link>
 
         <Link to="/discount-code">
-          <MenuItem>
+          <MenuItem isActive={currentPage === "discount-code"}>
             <MenuItemIcon>
               <DollarOutlined />
             </MenuItemIcon>
@@ -74,7 +76,7 @@ function SideBar({ user }) {
         </Link>
 
         <Link to="/product">
-          <MenuItem>
+          <MenuItem isActive={currentPage === "product"}>
             <MenuItemIcon>
               <SkinOutlined />
             </MenuItemIcon>
@@ -83,7 +85,7 @@ function SideBar({ user }) {
         </Link>
 
         {/* <Link to="/api-url">
-          <MenuItem>
+          <MenuItem isActive={}>
             <MenuItemIcon>
               <ApiOutlined />
             </MenuItemIcon>

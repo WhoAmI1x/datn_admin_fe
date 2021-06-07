@@ -64,6 +64,8 @@ export const MenuItem = styled.div`
     cursor: pointer;
     border-radius: 4px;
 
+    ${props => props.isActive && "background-color: #F8F9FE;"}
+
     &:hover {
         background-color: #F8F9FE;
     }

@@ -7,7 +7,7 @@ import { withRouter } from "react-router-dom";
 import Header from "../components/Header";
 import SideBar from "../components/SideBar";
 
-function App({ children, userInfo, actGetUserInfo, history }) {
+function App({ children, userInfo, actGetUserInfo, history, location }) {
   const isLoggedIn = Object.keys(userInfo).length !== 0;
 
   useEffect(() => {
@@ -21,7 +21,7 @@ function App({ children, userInfo, actGetUserInfo, history }) {
       {isLoggedIn && (
         <>
           <Header history={history} />
-          <SideBar />
+          <SideBar location={location} />
         </>
       )}
 
