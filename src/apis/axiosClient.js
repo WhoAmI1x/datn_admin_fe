@@ -10,7 +10,7 @@ const axiosClient = axios.create({
         "user-role": "ADMIN"
     },
     paramsSerializer: params => queryString.stringify(params),
-    timeout: 30000
+    timeout: 50000
 });
 
 axiosClient.interceptors.request.use(
