@@ -50,13 +50,13 @@ function DiscountCodeByCategory({
     {
       title: "Hạn dùng",
       dataIndex: "expires",
-      render: (expires) => getDateStringAndTime(expires),
+      render: (expires) => <a>{getDateStringAndTime(expires)}</a>,
     },
-    {
-      title: "Người sử dụng",
-      dataIndex: "userIds",
-      render: (userIds) => {},
-    },
+    // {
+    //   title: "Người sử dụng",
+    //   dataIndex: "userIds",
+    //   render: (userIds) => {},
+    // },
     {
       title: "Hành động",
       dataIndex: "_id",
@@ -182,7 +182,7 @@ function DiscountCodeByCategory({
                 <b>Hạn sử dụng:</b>
               </Col>
               <Col span={17}>
-                {getDateStringAndTime(currentDiscountCode.expires)}
+                <a>{getDateStringAndTime(currentDiscountCode.expires)}</a>
               </Col>
             </Row>
           </Col>
@@ -205,7 +205,7 @@ function DiscountCodeByCategory({
             </Row>
           </Col>
 
-          <Col span={24}>
+          {/* <Col span={24}>
             <Row align="middle" gutter={[16, 0]}>
               <Col span={7} align="end">
                 <b>Người sử dụng:</b>
@@ -216,7 +216,7 @@ function DiscountCodeByCategory({
                 ))}
               </Col>
             </Row>
-          </Col>
+          </Col> */}
 
           <Col span={24}>
             <Row align="middle" gutter={[16, 0]}>
